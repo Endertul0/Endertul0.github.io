@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blockgame</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="jquery-3.7.0.min.js" rel="preload" as="script">
+  <script type="text/javascript" src="jquery-3.7.0.min.js"></script>
+  <link href="matter.min.js" rel="preload" as="script">
+  <script type="text/javascript" src="matter.min.js"></script>
+  <style>
+    #resetbutton {
+      color: aqua;
+      cursor: not-allowed;
+    }
+    #clearall {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      z-index: 9;
+    }
+  </style>
+</head>
+<body id="main-body" style="background-color: rgb(41, 41, 46);">
+<script src="index.js"></script>
+  <div style="color: aqua;">
+    <button id="clearall" onClick="window.location.reload();">Clear All</button>
+  </div><!-- href="endertul0.github.io/blockgame/index.html"-->
+</body>
+</html>
