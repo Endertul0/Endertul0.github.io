@@ -3,11 +3,37 @@
 <head>
   <title>Login to Endertul0.github.io</title>
 <style>
+  #incorrect {
+    color: white;
+  }
 </style>
+
 </head>
 <body>
-    <p>Username:</p>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name">
+    <label for="username">Username:</label>
+    <input type="text" id="inputUser" name="inputUser">
+    <label for="password">Password:</label>
+    <input type="text" id="inputPassword" name="inputPassword">
+    <button onClick="changeColor();">Login</button>
+
+    <script>
+      function incorrect() {
+        document.getElementById('incorrect').style.color = 'red';
+      }
+    </script>
+    <script type="text/javascript">
+        var adminusername = "sosayweadmin";
+        var adminpassword = "t2pc8fhb0bnl3ioi";
+
+        function registerNewUser() {
+            if (adminusername = document.getElementById('inputUser').value) {
+              if (adminpassword = document.getElementById('inputPassword').value) {
+                window.location.replace(endertul0.github.io/homepage/index.html)
+              }
+            }
+        }
+    </script>
+  
+    <p id="incorrect">Incorrect Login</p>
 </body>
 </html>
