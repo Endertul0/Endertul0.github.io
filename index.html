@@ -6,22 +6,17 @@
   #incorrect {
     color: white;
   }
+  #unm {
+    border: 3px ridge gold;
+  }
+  #psw {
+    border: 3px ridge gold;
+  }
+  #loginbutton {
+    border: 3px ridge gold;
+  }
 </style>
-
-</head>
-<body>
-    <div>
-      <label for="username">Username:</label>
-      <input type="text" id="inputUser" name="inputUser">  
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="text" id="inputPassword" name="inputPassword">
-    </div>
-    <div><button onClick="changeColor();">Login</button></div>
-
-
-    <script>
+ <script>
       function incorrect() {
         document.getElementById('incorrect').style.color = 'red';
       }
@@ -44,7 +39,17 @@
             }
         }
     </script>
-  
+</head>
+<body>
+    <div id="unm">
+      <label for="username">Username:</label>
+      <input type="text" id="inputUser" name="inputUser">  
+    </div>
+    <div id="psw">
+      <label for="password">Password:</label>
+      <input type="text" id="inputPassword" name="inputPassword">
+    </div>
+    <div><button id="loginbutton" onClick="changeColor();">Login</button></div>
     <p id="incorrect">Incorrect Login</p>
 </body>
 </html>
