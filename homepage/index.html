@@ -2,6 +2,10 @@
 <html>
 <head>
   <title>Endertul0 Homepage</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <header>
+    <p><img src="../favicon.ico" alt="Favicon"><h1>Homepage</h1><a href="shapes/index.html">Lines</a><a href="blockgame/index.html">Blockgame</a></p>
+  </header>
 <style>
   @keyframes gradient {
       0% {
@@ -35,15 +39,30 @@
     height: 100px;
   }
 </style>
+<script type="text/javascript">
+  let currentUser = document.cookie;
+  function checkUserID() {
+        if (document.cookie == 0) {
+            window.location.replace('../404/login/index.html')
+        }
+    }
+</script>
+<script>
+  function logout() {
+    window.location.replace('../index.html');
+    let currentUser = 0;
+  }
+</script>
 </head>
-<body>
-  <div style="color: rgb(21, 221, 211);">
+<body onload="checkUserID();">
+  <div style="color: turquoise;">
     <h1>The Endertul Homepage</h1>
     <p>My homepage</p>
   </div>
     <a href="shapes/index.html">Mesmerizing lines</a> and <a href="blockgame/index.html">a block physics game.</a>
     <br>
   <img id="gamepics" src="mesmerize.png" alt="Beutiful colors streaming from a central point">
-  <img id="gamepics" src="blockgame.png" alt="HI using blocks from game 'Blockgame'">
+  <img id="gamepics" src="blockgame.png" alt="HI using blocks from game 'Blockgame'"><br>
+  <input type="button" onclick="logout();" value="Logout">
 </body>
 </html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <title>Login to Endertul0.github.io</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 <style>
   #incorrect {
     color: white;
@@ -22,36 +22,105 @@
         document.getElementById('incorrect').style.color = 'red';
       }
     </script>
-    <script type="text/javascript">
-        var adminusername = 'sosayweadmin';
-        var adminpassword = 't2pc8fhb0bnl3ioi';
-        function registerNewUser() {
-            if (document.getElementById('inputUser').value == adminusername) {
-              if (document.getElementById('inputPassword').value == adminpassword) {
-                window.location.replace('https://endertul0.github.io/homepage/index.html')
-              }
-              else {
-                incorrect()
-                console.log('[CONSOLE]: Incorrect login for password: ', document.getElementById('inputPassword').value, ', account: ', document.getElementById('inputPassword').value);
-              }
+    <script type="text/javascript" type="module" id="login">
+      document.cookie = "currentUser=0;SameSite=Lax";
+      var currentUser = 0;
+      var amnu = 'sosayweadmin';
+      var amnp = 't2pc8fhb0bnl3ioi';
+      function adminLogin() {
+        if (document.getElementById('inputUser').value == amnu) {
+          if (document.getElementById('inputPassword').value == amnp) {
+            window.location.replace('homepage/admin/index.html')
+            currentUser = 4;
+          }
+          else {
+            incorrect()
+            console.log('[CONSOLE]: Incorrect login for password: ', document.getElementById('inputPassword').value, ', account: ', document.getElementById('inputPassword').value);
             }
-            else {
-              incorrect()
-              console.log('[CONSOLE]: Incorrect login for account: ', document.getElementById('inputUser').value);
-            }
+          }
+        else {
+          incorrect()
+          console.log('[CONSOLE]: Incorrect login for account: ', document.getElementById('inputUser').value);
         }
+      }
+      var shau = 'shawn';
+      var shap = 'twentytwoeighty2280';
+      function shawnLogin() {
+        if (document.getElementById('inputUser').value == shau) {
+          if (document.getElementById('inputPassword').value == shap) {
+            window.location.replace('homepage/index.html');
+            currentUser = 1;
+          }
+          else {
+            incorrect()
+            console.log('[CONSOLE]: Incorrect login for password: ', document.getElementById('inputPassword').value, ', account: ', document.getElementById('inputPassword').value);
+            }
+          }
+        else {
+          incorrect()
+          console.log('[CONSOLE]: Incorrect login for account: ', document.getElementById('inputUser').value);
+        }
+      }
+      var tnyu = 'tony';
+      var tnyp = 'fourtytwoninety4290';
+      function tonyLogin() {
+        if (document.getElementById('inputUser').value == tnyu) {
+          if (document.getElementById('inputPassword').value == tnyp) {
+            window.location.replace('homepage/index.html')
+            currentUser = 2;
+          }
+          else {
+            incorrect()
+            console.log('[CONSOLE]: Incorrect login for password: ', document.getElementById('inputPassword').value, ', account: ', document.getElementById('inputPassword').value);
+            }
+          }
+        else {
+          incorrect()
+          console.log('[CONSOLE]: Incorrect login for account: ', document.getElementById('inputUser').value);
+        }
+      }
+      var nahu = 'noah';
+      var nahp = 'minceraftisz0mb1e';
+      function noahLogin() {
+        if (document.getElementById('inputUser').value == nahu) {
+          if (document.getElementById('inputPassword').value == nahp) {
+            window.location.replace('homepage/index.html')
+            currentUser = 3;
+          }
+          else {
+            incorrect()
+            console.log('[CONSOLE]: Incorrect login for password: ', document.getElementById('inputPassword').value, ', account: ', document.getElementById('inputPassword').value);
+            }
+          }
+        else {
+          incorrect()
+          console.log('[CONSOLE]: Incorrect login for account: ', document.getElementById('inputUser').value);
+        }
+      }
+      function checkCredentials() {
+        adminLogin();
+        shawnLogin();
+        noahLogin();
+        tonyLogin();
+        console.log('User:', document.getElementById('inputUser').value, '. Id:', currentUser);
+      }
+      function loginIf() {
+        if (currentUser !== 0) {
+            window.location.replace('homepage/index.html')
+        }
+    }
     </script>
 </head>
-<body>
+<body onload="loginIf();">
     <div id="unm">
-      <label for="username">Username:</label>
-      <input type="text" id="inputUser" name="inputUser">  
+      <label for="inputUser">Username:</label><br>
+      <input type="text" id="inputUser" name="inputUser"><br>
     </div>
     <div id="psw">
-      <label for="password">Password:</label>
-      <input type="text" id="inputPassword" name="inputPassword">
+      <label for="inputPassword">Password:</label><br>
+      <input type="password" id="inputPassword" name="inputPassword">
     </div>
-    <div><button id="loginbutton" onClick="registerNewUser();">Login</button></div>
-    <p id="incorrect">Incorrect Login</p>
+    <div><button id="loginbutton" onClick="checkCredentials();">Login</button></div>
+    <p id="incorrect">Unrecognized username / password</p>
 </body>
 </html>

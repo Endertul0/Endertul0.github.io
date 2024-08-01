@@ -2,12 +2,25 @@
 <html>
 <head>
   <title>Admin for Endertul0's Site</title>
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
 <style>
 </style>
+<script>
+    function checkAdminState() {
+        if (currentUser !== 4) {
+            window.location.replace('../../404/hacker/index.html')
+        }
+    }
+    function logout() {
+        window.location.replace('../../index.html');
+        let currentUser = 0;
+    }
+</script>
 </head>
 <body>
-    <h1>Welcome, admin</h1>
-    <a href="shapes/index.html">Mesmerizing lines</a> and <a href="blockgame/index.html">a block physics game.</a>
-    <p>&lt;;No other items to display&gt;</p>
+    <h1>Welcome, Admin</h1>
+    <a href="../shapes/index.html">Lines</a><br><a href="../blockgame/index.html">Blockgame</a>
+    <a href="../../404/hacker/index.html">Hacker</a><br><a href="../../404/login/index.html">PleaseLogin</a>
+    <input type="button" onclick="logout();" value="Logout">
 </body>
 </html>

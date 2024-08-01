@@ -7,23 +7,20 @@
   <script type="text/javascript" src="jquery-3.7.0.min.js"></script>
   <link href="matter.min.js" rel="preload" as="script">
   <script type="text/javascript" src="matter.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
   <style>
     #resetbutton {
-      color: aqua;
+      color: black;
+      background-color: teal;
       cursor: not-allowed;
-    }
-    #clearall {
-      position: absolute;
-      bottom: 1%;
-      right: 1%;
+      position: relative;
+      border: 3px ridge white;
       z-index: 9;
     }
   </style>
 </head>
-<body id="main-body" style="background-color: rgb(41, 41, 46);">
+<body id="main-body" style="background-color: rgb(24, 20, 28);">
 <script src="index.js"></script>
-  <div style="color: aqua;">
-    <button id="clearall" onClick="window.location.reload();">Clear All</button>
-  </div><!-- href="endertul0.github.io/blockgame/index.html"-->
+  <button id="resetbutton" onClick="window.location.reload();">Clear All</button>
 </body>
 </html>
