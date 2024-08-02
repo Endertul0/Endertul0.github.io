@@ -23,15 +23,18 @@
       }
     </script>
     <script type="text/javascript" type="module" id="login">
-      document.cookie = "currentUser=0;SameSite=Lax";
-      var currentUser = 0;
+      var loginUser = 0;
+      function resetID() {
+        loginUser = 0;
+        console.log('Reset ID to:',loginUser);
+      }
       var amnu = 'sosayweadmin';
       var amnp = 't2pc8fhb0bnl3ioi';
       function adminLogin() {
         if (document.getElementById('inputUser').value == amnu) {
           if (document.getElementById('inputPassword').value == amnp) {
-            window.location.replace('homepage/admin/index.html')
-            currentUser = 4;
+            loginUser = 4;
+            window.location.replace('homepage/admin/index.html');
           }
           else {
             incorrect()
@@ -48,8 +51,8 @@
       function shawnLogin() {
         if (document.getElementById('inputUser').value == shau) {
           if (document.getElementById('inputPassword').value == shap) {
+            loginUser = 1;
             window.location.replace('homepage/index.html');
-            currentUser = 1;
           }
           else {
             incorrect()
@@ -66,8 +69,8 @@
       function tonyLogin() {
         if (document.getElementById('inputUser').value == tnyu) {
           if (document.getElementById('inputPassword').value == tnyp) {
-            window.location.replace('homepage/index.html')
-            currentUser = 2;
+            loginUser = 2;
+            window.location.replace('homepage/index.html');
           }
           else {
             incorrect()
@@ -84,8 +87,8 @@
       function noahLogin() {
         if (document.getElementById('inputUser').value == nahu) {
           if (document.getElementById('inputPassword').value == nahp) {
-            window.location.replace('homepage/index.html')
-            currentUser = 3;
+            loginUser = 3;
+            window.location.replace('homepage/index.html');
           }
           else {
             incorrect()
@@ -102,16 +105,12 @@
         shawnLogin();
         noahLogin();
         tonyLogin();
-        console.log('User:', document.getElementById('inputUser').value, '. Id:', currentUser);
+        document.cookie = "currentUser="+loginUser+"; SameSite=Lax";
+        console.log('User:', document.getElementById('inputUser').value, '. Id:', loginUser);
       }
-      function loginIf() {
-        if (currentUser !== 0) {
-            window.location.replace('homepage/index.html')
-        }
-    }
     </script>
 </head>
-<body onload="loginIf();">
+<body onload="resetID();">
     <div id="unm">
       <label for="inputUser">Username:</label><br>
       <input type="text" id="inputUser" name="inputUser"><br>

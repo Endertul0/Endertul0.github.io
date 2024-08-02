@@ -4,10 +4,22 @@
   <title>Admin for Endertul0's Site</title>
   <link rel="icon" type="image/x-icon" href="../../favicon.ico">
 <style>
+    a:link {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:visited {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
 </style>
 <script>
+    let currentUser = document.cookie;
     function checkAdminState() {
-        if (currentUser !== 4) {
+        console.log(document.cookie)
+        if (document.cookie !== 'currentUser=4') {
             window.location.replace('../../404/hacker/index.html')
         }
     }
@@ -18,9 +30,12 @@
 </script>
 </head>
 <body onload="checkAdminState();">
-    <h1>Welcome, Admin</h1>
-    <a href="../shapes/index.html">Lines</a><br><a href="../blockgame/index.html">Blockgame</a>
-    <a href="../../404/hacker/index.html">Hacker</a><br><a href="../../404/login/index.html">PleaseLogin</a>
+    <h1>Welcome, Debugger</h1>
+    <a class="link" href="../index.html">Normal Homepage</a><br>
+    <a class="link" href="../shapes/index.html">Lines Page</a><br>
+    <a class="link" href="../blockgame/index.html">Blockgame Page</a><br>
+    <a class="link" href="../../404/hacker/index.html">Hacker Page</a><br>
+    <a class="link" href="../../404/login/index.html">Please Login Page</a><br>
     <input type="button" onclick="logout();" value="Logout">
 </body>
 </html>
