@@ -22,59 +22,14 @@
 			border: 3px ridge gold;
 		}
 	</style>
+	<script src="common.js"></script>
 	<script>
-	</script>
-	<script type="text/javascript" type="module" id="login">
-		const users = new Map();
-		users.set("endertul", "")
+		function checkCreds(userIn, pwIn) {
+		    userIn = userIn == '' ? document.getElementById('inputUser').value : userIn;
+		    pwIn = pwIn == '' ? document.getElementById('inputPassword').value : pwIn;
 
-		function isValid(isPass, val) {
-			if (!isPass) {
-				return document.getElementById('inputUser').value == val;
-			}
-			return document.getElementById('inputPassword').value == val;
-		}
-
-		function incorrect() {
-			document.getElementById('incorrect').style.color = 'red';
-		}
-
-		function login() {
-			for (const user of users) {
-				if (isValid(false, user)) {
-					if (isValid(true, users[user])) {
-						document.cookie = "currentUser=" + user + "; SameSite=Lax";
-						document.cookie = "passIn=" + users[user] + "; SameSite=Lax";
-						console.log('User ', document.getElementById('inputUser').value, ' logged in.');
-
-						window.location.replace('homepage/index.html');
-						return;
-					}
-					incorrect()
-					return;
-				}
-				incorrect()
-			}
-		}
-
-		
-
-		function checkCookies() {
-			if (!document.cookie.split("; ")
-				.find((row) => row.startsWith("currentUser"))
-			) {
-				var userNm = row;
-				userNm.replace("currentUser=", "");
-				document.getElementById("inputUser").innerText = userNm
-				if (!document.cookie.split("; ")
-					.find((row2) => row2.startsWith("passIn"))
-				) {
-					var passStr = row2;
-					passStr.replace("passIn=", "");
-					document.getElementById("inputPassword").innerText = passStr
-					login()
-				}
-				login()
+			if (login(userIn, pwIn)) {
+				window.location.replace('homepage/index.html');
 			}
 		}
 	</script>
@@ -90,7 +45,7 @@
 		<input type="password" id="inputPassword" name="inputPassword">
 	</div>
 	<div>
-		<button id="loginbutton" onClick="login();">Login</button>
+		<button id="loginbutton" onClick="checkCreds('', '');">Login</button>
 	</div>
 	<p id="incorrect">Unrecognized username / password</p>
 </body>
