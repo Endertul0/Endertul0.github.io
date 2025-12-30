@@ -1,126 +1,98 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Login to Endertul0.github.io</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta name="hibp-verify" content="dweb_5ry8igsvy27ttdcdacbljkdk" />
-  <style>
-  #incorrect {
-    color: white;
-  }
-  #unm {
-    border: 3px ridge gold;
-  }
-  #psw {
-    border: 3px ridge gold;
-  }
-  #loginbutton {
-    border: 3px ridge gold;
-  }
-</style>
- <script>
-      function incorrect() {
-        document.getElementById('incorrect').style.color = 'red';
-      }
-    </script>
-    <script type="text/javascript" type="module" id="login">
-      var loginUser = 0;
-      function resetID() {
-        loginUser = 0;
-        console.log('Reset ID to:',loginUser);
-      }
-      var amnu = 'sosayweadmin';
-      var amnp = 't2pc8fhb0bnl3ioi';
-      function adminLogin() {
-        if (document.getElementById('inputUser').value == amnu) {
-          if (document.getElementById('inputPassword').value == amnp) {
-            loginUser = 4;
-            window.location.replace('homepage/admin/index.html');
-          }
-          else {
-            incorrect()
-            console.log('[CONSOLE]: Incorrect login for password: ', document.getElementById('inputPassword').value, ', account: ', document.getElementById('inputPassword').value);
-            }
-          }
-        else {
-          incorrect()
-          console.log('[CONSOLE]: Incorrect login for account: ', document.getElementById('inputUser').value);
-        }
-      }
-      var shau = 'shawn';
-      var shap = 'twentytwoeighty2280';
-      function shawnLogin() {
-        if (document.getElementById('inputUser').value == shau) {
-          if (document.getElementById('inputPassword').value == shap) {
-            loginUser = 1;
-            window.location.replace('homepage/index.html');
-          }
-          else {
-            incorrect()
-            console.log('[CONSOLE]: Incorrect login for password: ', document.getElementById('inputPassword').value, ', account: ', document.getElementById('inputPassword').value);
-            }
-          }
-        else {
-          incorrect()
-          console.log('[CONSOLE]: Incorrect login for account: ', document.getElementById('inputUser').value);
-        }
-      }
-      var tnyu = 'tony';
-      var tnyp = 'fourtytwoninety4290';
-      function tonyLogin() {
-        if (document.getElementById('inputUser').value == tnyu) {
-          if (document.getElementById('inputPassword').value == tnyp) {
-            loginUser = 2;
-            window.location.replace('homepage/index.html');
-          }
-          else {
-            incorrect()
-            console.log('[CONSOLE]: Incorrect login for password: ', document.getElementById('inputPassword').value, ', account: ', document.getElementById('inputPassword').value);
-            }
-          }
-        else {
-          incorrect()
-          console.log('[CONSOLE]: Incorrect login for account: ', document.getElementById('inputUser').value);
-        }
-      }
-      var nahu = 'noah';
-      var nahp = 'BeepBoops312';
-      function noahLogin() {
-        if (document.getElementById('inputUser').value == nahu) {
-          if (document.getElementById('inputPassword').value == nahp) {
-            loginUser = 3;
-            window.location.replace('homepage/index.html');
-          }
-          else {
-            incorrect()
-            console.log('[CONSOLE]: Incorrect login for password: ', document.getElementById('inputPassword').value, ', account: ', document.getElementById('inputPassword').value);
-            }
-          }
-        else {
-          incorrect()
-          console.log('[CONSOLE]: Incorrect login for account: ', document.getElementById('inputUser').value);
-        }
-      }
-      function checkCredentials() {
-        adminLogin();
-        shawnLogin();
-        noahLogin();
-        tonyLogin();
-        document.cookie = "currentUser="+loginUser+"; SameSite=Lax";
-        console.log('User:', document.getElementById('inputUser').value, '. Id:', loginUser);
-      }
-    </script>
+	<title>Login to Endertul0.github.io</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<meta name="hibp-verify" content="dweb_5ry8igsvy27ttdcdacbljkdk" />
+	<style>
+		#incorrect {
+			color: white;
+		}
+
+		#unm {
+			border: 3px ridge gold;
+		}
+
+		#psw {
+			border: 3px ridge gold;
+		}
+
+		#loginbutton {
+			border: 3px ridge gold;
+		}
+	</style>
+	<script>
+	</script>
+	<script type="text/javascript" type="module" id="login">
+		const users = new Map(String, String);
+		users.set("endertul", "")
+
+		function isValid(isPass, val) {
+			if (!isPass) {
+				return document.getElementById('inputUser').value == val;
+			}
+			return document.getElementById('inputPassword').value == val;
+		}
+
+		function incorrect() {
+			document.getElementById('incorrect').style.color = 'red';
+		}
+
+		function login() {
+			users.forEach(user => {
+				if (isValid(false, user)) {
+					if (isValid(true, users[user])) {
+						document.cookie = "currentUser=" + user + "; SameSite=Lax";
+						document.cookie = "passIn=" + users[user] + "; SameSite=Lax";
+						console.log('User ', document.getElementById('inputUser').value, ' logged in.');
+
+						window.location.replace('homepage/index.html');
+						return;
+					}
+					incorrect()
+					return;
+				}
+				incorrect()
+			});
+		}
+
+		
+
+		function checkCookies() {
+			if (!document.cookie.split("; ")
+				.find((row) => row.startsWith("currentUser"))
+			) {
+				var userNm = row;
+				userNm.replace("currentUser=", "");
+				document.getElementById("inputUser").innerText = userNm
+				if (!document.cookie.split("; ")
+					.find((row2) => row2.startsWith("passIn"))
+				) {
+					var passStr = row2;
+					passStr.replace("passIn=", "");
+					document.getElementById("inputPassword").innerText = passStr
+					login()
+				}
+				login()
+			}
+		}
+	</script>
 </head>
-<body onload="resetID();">
-    <div id="unm">
-      <label for="inputUser">Username:</label><br>
-      <input type="text" id="inputUser" name="inputUser"><br>
-    </div>
-    <div id="psw">
-      <label for="inputPassword">Password:</label><br>
-      <input type="password" id="inputPassword" name="inputPassword">
-    </div>
-    <div><button id="loginbutton" onClick="checkCredentials();">Login</button></div>
-    <p id="incorrect">Unrecognized username / password</p>
+
+<body onload="checkCookies();">
+	<div id="unm">
+		<label for="inputUser">Username:</label><br>
+		<input type="text" id="inputUser" name="inputUser"><br>
+	</div>
+	<div id="psw">
+		<label for="inputPassword">Password:</label><br>
+		<input type="password" id="inputPassword" name="inputPassword">
+	</div>
+	<div>
+		<button id="loginbutton" onClick="login();">Login</button>
+	</div>
+	<p id="incorrect">Unrecognized username / password</p>
 </body>
+
 </html>
