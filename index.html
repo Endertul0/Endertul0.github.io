@@ -25,7 +25,7 @@
 	<script>
 	</script>
 	<script type="text/javascript" type="module" id="login">
-		const users = new Map(String, String);
+		const users = new Map();
 		users.set("endertul", "")
 
 		function isValid(isPass, val) {
@@ -40,7 +40,7 @@
 		}
 
 		function login() {
-			users.forEach(user => {
+			for (const user of users) {
 				if (isValid(false, user)) {
 					if (isValid(true, users[user])) {
 						document.cookie = "currentUser=" + user + "; SameSite=Lax";
@@ -54,7 +54,7 @@
 					return;
 				}
 				incorrect()
-			});
+			}
 		}
 
 		
