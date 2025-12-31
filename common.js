@@ -21,14 +21,16 @@ async function login(userIn = '', pwIn = '') {
                 console.log('User ', userIn, ' logged in.');
 
                 return true;
+            } else {
+                incorrect();
+                console.log("Bad PW for user " + user[0]);
+                console.log("Expected " + user[1] + ", got " + pwInHash);
             }
+        } else {
             incorrect();
-            console.log("Bad PW for user " + user[0]);
-            console.log("Expected " + user[1] + ", got " + pwInHash);
+            console.log("No matching UN");
+            console.log("Expected " + user[0] + ", got " + userIn);
         }
-        incorrect();
-        console.log("No matching UN");
-        console.log("Expected " + user[0] + ", got " + userIn);
     }
 }
 
