@@ -19,10 +19,16 @@ var render = Render.create({
 });
 
 // create a ground
-var ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
+var ground = Bodies.rectangle(400, 600, 810, 60, { isStatic: true });
+var ceiling = Bodies.rectangle(400, 0, 810, 60, { isStatic: true });
+var left = Bodies.rectangle(0, 300, 60, 610, { isStatic: true });
+var right = Bodies.rectangle(800, 300, 60, 610, { isStatic: true });
 
 // add all of the bodies to the world
 Composite.add(engine.world, [ground]);
+Composite.add(engine.world, [ceiling]);
+Composite.add(engine.world, [left]);
+Composite.add(engine.world, [right]);
 
 // run the renderer
 Render.run(render);
