@@ -25,12 +25,10 @@ async function login(userIn = '', pwIn = '') {
             incorrect();
             console.log("Bad PW for user " + user[0]);
             console.log("Expected " + user[1] + ", got " + pwInHash);
-            continue;
         }
         incorrect();
         console.log("No matching UN");
         console.log("Expected " + user[0] + ", got " + userIn);
-        continue;
     }
 }
 
