@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Blockgame</title>
-  <link rel="stylesheet" href="index.css">
-  <link href="jquery-3.7.0.min.js" rel="preload" as="script">
-  <script type="text/javascript" src="jquery-3.7.0.min.js"></script>
-  <link href="matter.min.js" rel="preload" as="script">
-  <script type="text/javascript" src="matter.min.js"></script>
-  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-  <style>
-    #resetbutton {
-      color: black;
-      background-color: teal;
-      cursor: not-allowed;
-      position: relative;
-      border: 3px ridge white;
-      z-index: 9;
-    }
-  </style>
+	<title>Blockgame</title>
+	<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+
+	<link href="jquery-3.7.0.min.js" rel="preload" as="script">
+	<script type="text/javascript" src="jquery-3.7.0.min.js"></script>
+	<link href="matter.min.js" rel="preload" as="script">
+	<script type="text/javascript" src="matter.min.js"></script>
+
+	<script src="index.js"></script>
+
+	<style>
+		#resetbutton {
+			color: black;
+			background-color: teal;
+			cursor: not-allowed;
+			position: relative;
+			border: 3px ridge white;
+			z-index: 9;
+		}
+
+		.fuchsia {
+			color: fuchsia;
+		}
+
+		canvas {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: rgb(198, 47, 47);
+		}
+	</style>
 </head>
+
 <body id="main-body" style="background-color: rgb(24, 20, 28);">
-<script src="index.js"></script>
-  <button id="resetbutton" onClick="window.location.reload();">Clear All</button>
+	<button id="resetbutton" onClick="window.location.reload();">Clear All</button>
 </body>
+
 </html>
